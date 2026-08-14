@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For NOWREEN ❤️</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  min-height:100vh;
+  overflow:hidden;
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#120014,#4b092f,#ff4f81);
+  color:white;
+}
+
+/* Opening Page */
+#opening{
+  position:fixed;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  z-index:100;
+  background:radial-gradient(circle,#ff7198,#8b174c,#170018);
+  transition:1s;
+}
+
+.open-box{
+  width:90%;
+  max-width:420px;
+}
+
+.big-heart{
+  font-size:100px;
+  animation:beat 1s infinite;
+}
+
+@keyframes beat{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.18)}
+}
+
+.open-box h1{
+  font-size:38px;
+  margin:20px 0 10px;
+}
+
+.open-box p{
+  font-size:18px;
+  opacity:.9;
+  margin-bottom:30px;
+}
+
+.open-btn{
+  border:0;
+  padding:16px 38px;
+  border-radius:50px;
+  background:white;
+  color:#e52d68;
+  font-size:20px;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 0 30px rgba(255,255,255,.7);
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+  50%{transform:scale(1.06)}
+}
+
+/* Main Page */
+#main{
+  min-height:100vh;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+
+.card{
+  width:92%;
+  max-width:450px;
+  padding:30px 25px;
+  text-align:center;
+  border-radius:30px;
+  background:rgba(255,255,255,.12);
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.25);
+  box-shadow:0 20px 60px rgba(0,0,0,.4);
+}
+
+.card h1{
+  font-size:34px;
+  margin-bottom:5px;
+}
+
+.name{
+  color:#ffd1df;
+  text-shadow:0 0 20px #ff8db0;
+}
+
+.photo{
+  width:145px;
+  height:145px;
+  object-fit:cover;
+  border-radius:50%;
+  border:5px solid white;
+  margin:20px auto;
+  display:block;
+  box-shadow:0 0 30px rgba(255,255,255,.6);
+}
+
+.message{
+  min-height:115px;
+  line-height:1.8;
+  font-size:17px;
+}
+
+.question{
+  font-size:25px;
+  font-weight:bold;
+  margin-top:10px;
+}
+
+.buttons{
+  margin-top:25px;
+  display:flex;
+  justify-content:center;
+  gap:15px;
+}
+
+button{
+  border:0;
+  border-radius:50px;
+  padding:14px 28px;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+#yes{
+  background:#ff1744;
+  color:white;
+  box-shadow:0 5px 25px rgba(255,23,68,.6);
+}
+
+#no{
+  background:white;
+  color:#e91e63;
+}
+
+#result{
+  display:none;
+  margin-top:25px;
+  font-size:24px;
+  font-weight:bold;
+  animation:pop .7s ease;
+}
+
+@keyframes pop{
+  from{
+    transform:scale(.2);
+    opacity:0;
+  }
+  to{
+    transform:scale(1);
+    opacity:1;
+  }
+}
+
+.floating{
+  position:fixed;
+  bottom:-30px;
+  pointer-events:none;
+  animation:up 5s linear forwards;
+  z-index:5;
+}
+
+@keyframes up{
+  to{
+    transform:translateY(-110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
+.confetti{
+  position:fixed;
+  top:50%;
+  left:50%;
+  font-size:30px;
+  animation:explode 1.5s ease-out forwards;
+  z-index:200;
+}
+
+@keyframes explode{
+  to{
+    transform:
+      translate(
+        calc(-50vw + 100vw * var(--x)),
+        calc(-50vh + 100vh * var(--y))
+      )
+      rotate(720deg);
+    opacity:0;
+  }
+}
+
+.small{
+  margin-top:18px;
+  font-size:12px;
+  opacity:.7;
+}
+</style>
+</head>
+
+<body>
+
+<!-- OPENING -->
+<section id="opening">
+
+  <div class="open-box">
+
+    <div class="big-heart">💌</div>
+
+    <h1>Hey NOWREEN ❤️</h1>
+
+    <p>
+      তোমার জন্য একটা ছোট্ট surprise আছে...
+      <br>
+      খুলবে? 🥺
+    </p>
+
+    <button class="open-btn" onclick="openLove()">
+      Open Me ❤️
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- MAIN -->
+<section id="main">
+
+  <div class="card">
+
+    <div style="font-size:60px;">❤️</div>
+
+    <h1>Dear</h1>
+
+    <h1 class="name">NOWREEN</h1>
+
+    <!-- নিজের ছবি দিতে চাইলে image.jpg নামে রাখো -->
+    <img src="image.jpg" class="photo" alt="NOWREEN">
+
+    <div class="message" id="typing"></div>
+
+    <div class="question">
+      Will You Be Mine? 💍❤️
+    </div>
+
+    <div class="buttons">
+
+      <button id="yes">
+        YES ❤️
+      </button>
+
+      <button id="no">
+        NO 🙈
+      </button>
+
+    </div>
+
+    <div id="result">
+      YEEEEY! 😍❤️
+      <br><br>
+      NOWREEN, তুমি আমার দিনটা
+      সত্যিই special করে দিলে! 💕
+    </div>
+
+    <div class="small">
+      Made with ❤️ just for NOWREEN
+    </div>
+
+  </div>
+
+</section>
+
+
+<script>
+
+/* Opening */
+function openLove(){
+
+  document.getElementById("opening").style.opacity="0";
+
+  setTimeout(function(){
+
+    document.getElementById("opening").style.display="none";
+
+    document.getElementById("main").style.display="flex";
+
+    startTyping();
+
+  },1000);
+
+}
+
+
+/* Typing message */
+
+const text =
+"NOWREEN, তোমাকে হয়তো এই কথাগুলো আগে কখনো বলা হয়নি। কিন্তু তুমি আমার কাছে সত্যিই অনেক special। তোমার হাসি, তোমার কথা—সবকিছুই somehow আমার কাছে আলাদা। তাই আজ একটু সাহস করে তোমাকে একটা প্রশ্ন করছি... ❤️";
+
+let index=0;
+
+function startTyping(){
+
+  const box=document.getElementById("typing");
+
+  function type(){
+
+    if(index < text.length){
+
+      box.innerHTML += text.charAt(index);
+
+      index++;
+
+      setTimeout(type,40);
+
+    }
+
+  }
+
+  type();
+}
+
+
+/* YES */
+
+document.getElementById("yes").onclick=function(){
+
+  document.getElementById("result").style.display="block";
+
+  document.querySelector(".buttons").style.display="none";
+
+  for(let i=0;i<100;i++){
+
+    setTimeout(createConfetti,i*20);
+
+  }
+
+};
+
+
+/* NO পালাবে */
+
+const no=document.getElementById("no");
+
+function moveNo(){
+
+  no.style.position="fixed";
+
+  no.style.left =
+    Math.random()*(window.innerWidth-100)+"px";
+
+  no.style.top =
+    Math.random()*(window.innerHeight-70)+"px";
+
+}
+
+no.addEventListener("mouseover",moveNo);
+
+no.addEventListener("touchstart",moveNo);
+
+
+/* Floating hearts */
+
+function createHeart(){
+
+  const h=document.createElement("div");
+
+  h.className="floating";
+
+  h.innerHTML=
+    ["❤️","💕","💖","💗","💘","✨"]
+    [Math.floor(Math.random()*6)];
+
+  h.style.left=Math.random()*100+"vw";
+
+  h.style.fontSize=
+    (18+Math.random()*25)+"px";
+
+  h.style.animationDuration=
+    (3+Math.random()*4)+"s";
+
+  document.body.appendChild(h);
+
+  setTimeout(()=>{
+    h.remove();
+  },7000);
+
+}
+
+setInterval(createHeart,500);
+
+
+/* Confetti */
+
+function createConfetti(){
+
+  const c=document.createElement("div");
+
+  c.className="confetti";
+
+  c.innerHTML=
+    ["❤️","💖","💕","💗","🎉","✨","🌹"]
+    [Math.floor(Math.random()*7)];
+
+  c.style.setProperty("--x",Math.random());
+
+  c.style.setProperty("--y",Math.random());
+
+  document.body.appendChild(c);
+
+  setTimeout(()=>{
+    c.remove();
+  },1600);
+
+}
+
+</script>
+
+</body>
+</html>
